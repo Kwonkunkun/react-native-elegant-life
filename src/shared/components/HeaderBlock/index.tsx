@@ -29,7 +29,12 @@ const HeaderBlock = ({
 
   const BackButton = () => (
     <RNBounceable onPress={onPressBackButton}>
-      <Icon name="menu" type="Ionicons" color={colors.iconWhite} size={30} />
+      <Icon
+        name="chevron-back-outline"
+        type="Ionicons"
+        color={colors.iconBlack}
+        size={30}
+      />
     </RNBounceable>
   );
 
@@ -66,7 +71,7 @@ const LeftBox = styled.View({
 });
 
 const MiddleBox = styled.View({
-  flex: 1,
+  flex: 2,
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",

@@ -1,4 +1,4 @@
-package com.rntypescriptboilerplate;
+package com.kwonkunkun.elegantlife;
 
 import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen;
@@ -11,6 +11,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "RNTypescriptBoilerplate";
+    return "RNElegatnLife";
   }
 }

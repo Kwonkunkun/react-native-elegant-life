@@ -1,5 +1,5 @@
 import React from "react";
-import { useColorScheme } from "react-native";
+// import { useColorScheme } from "react-native";
 import Icon from "react-native-dynamic-vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -23,8 +23,9 @@ const Tab = createBottomTabNavigator<RootTabParamList>();
 const Stack = createStackNavigator<RootStackParamList>();
 
 const Navigation = () => {
-  const scheme = useColorScheme();
-  const isDarkMode = scheme === "dark";
+  // const scheme = useColorScheme();
+  // const isDarkMode = scheme === "dark";
+  const isDarkMode = false;
 
   const renderTabHeader = (route: keyof RootTabParamList) => {
     let title = "홈";

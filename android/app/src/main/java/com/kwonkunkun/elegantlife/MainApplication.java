@@ -1,4 +1,4 @@
-package com.rntypescriptboilerplate;
+package com.kwonkunkun.elegantlife;
 
 import java.util.List;
 import android.app.Application;
@@ -71,7 +71,7 @@ public class MainApplication extends Application implements ReactApplication {
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("com.rntypescriptboilerplate.ReactNativeFlipper");
+        Class<?> aClass = Class.forName("com.kwonkunkun.elegantlife.ReactNativeFlipper");
         aClass
             .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
             .invoke(null, context, reactInstanceManager);

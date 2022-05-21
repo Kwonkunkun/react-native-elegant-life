@@ -23,7 +23,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.rntypescriptboilerplate"
+        applicationId "com.kwonkunkun.elegantlife"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
