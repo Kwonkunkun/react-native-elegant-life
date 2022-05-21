@@ -68,6 +68,7 @@ const LeftBox = styled.View({
   flex: 1,
   flexDirection: "row",
   alignItems: "center",
+  justifyContent: "flex-start",
 });
 
 const MiddleBox = styled.View({
@@ -81,6 +82,7 @@ const RightBox = styled.View({
   flex: 1,
   flexDirection: "row",
   alignItems: "center",
+  justifyContent: "flex-end",
 });
 
 export default HeaderBlock;

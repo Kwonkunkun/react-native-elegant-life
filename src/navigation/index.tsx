@@ -1,7 +1,10 @@
 import React from "react";
 // import { useColorScheme } from "react-native";
 import Icon from "react-native-dynamic-vector-icons";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 /**
@@ -13,10 +16,12 @@ import HomeScreen from "@screens/Home";
 import SearchScreen from "@screens/Search";
 import DetailScreen from "@screens/Detail";
 import ProfileScreen from "@screens/Profile";
-import NotificationScreen from "@screens/Notification";
 import { RootStackParamList, RootTabParamList } from "types/navigation";
 import HeaderBlock from "@shared-components/HeaderBlock";
 import StyledText from "@shared-components/StyledText";
+import RNBounceable from "@freakycoder/react-native-bounceable";
+import iconSize from "@theme/icon-size";
+import NotificationScreen from "@screens/Notification";
 
 // ? If you want to use stack or tab or both
 const Tab = createBottomTabNavigator<RootTabParamList>();
@@ -27,28 +32,47 @@ const Navigation = () => {
   // const isDarkMode = scheme === "dark";
   const isDarkMode = false;
 
-  const renderTabHeader = (route: keyof RootTabParamList) => {
-    let title = "홈";
+  const renderTabHeader = (
+    route: keyof RootTabParamList,
+    navigation: unknown,
+  ) => {
+    let title = "냉장고 현황";
     switch (route) {
       case "Home":
-        title = "홈";
+        title = "냉장고 현황";
         break;
-      case "Search":
-        title = "검색";
-        break;
-      case "Notification":
-        title = "알림";
+      case "Plus":
+        title = "식품 추가";
         break;
       case "Profile":
         title = "내 정보";
         break;
       default:
-        title = "홈";
+        title = "냉장고 현황";
         break;
     }
     return (
       <HeaderBlock
         middleComponent={<StyledText textType="title" text={title} />}
+        rightComponent={
+          false ? (
+            <RNBounceable
+              onPress={() => {
+                (
+                  navigation as StackNavigationProp<RootStackParamList>
+                ).navigate("Notification");
+              }}
+            >
+              <Icon
+                name="notifications-outline"
+                type="Ionicons"
+                size={iconSize.default}
+              />
+            </RNBounceable>
+          ) : (
+            <></>
+          )
+        }
       />
     );
   };
@@ -64,11 +88,8 @@ const Navigation = () => {
       case "Home":
         iconName = focused ? "home" : "home-outline";
         break;
-      case "Search":
-        iconName = focused ? "search" : "search-outline";
-        break;
-      case "Notification":
-        iconName = focused ? "notifications" : "notifications-outline";
+      case "Plus":
+        iconName = focused ? "add-circle" : "add-circle-outline";
         break;
       case "Profile":
         iconName = focused ? "person" : "person-outline";
@@ -83,8 +104,8 @@ const Navigation = () => {
   const renderTabNavigation = () => {
     return (
       <Tab.Navigator
-        screenOptions={({ route }) => ({
-          header: () => renderTabHeader(route.name),
+        screenOptions={({ route, navigation }) => ({
+          header: () => renderTabHeader(route.name, navigation),
           tabBarIcon: ({ focused, color, size }) =>
             renderTabIcon(route.name, focused, color, size),
           tabBarActiveTintColor: palette.primary,
@@ -97,8 +118,7 @@ const Navigation = () => {
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Search" component={SearchScreen} />
-        <Tab.Screen name="Notification" component={NotificationScreen} />
+        <Tab.Screen name="Plus" component={SearchScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
     );
@@ -115,6 +135,7 @@ const Navigation = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="Detail" component={DetailScreen} />
+        <Stack.Screen name="Notification" component={NotificationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
