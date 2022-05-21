@@ -6,6 +6,7 @@ import SplashScreen from "react-native-splash-screen";
  * ? Local Imports
  */
 import Navigation from "./src/navigation";
+import { NativeBaseProvider } from "native-base";
 
 LogBox.ignoreAllLogs();
 
@@ -26,10 +27,10 @@ const App = () => {
   }, [scheme, isDarkMode]);
 
   return (
-    <>
+    <NativeBaseProvider>
       <StatusBar barStyle={"dark-content"} />
       <Navigation />
-    </>
+    </NativeBaseProvider>
   );
 };
 
