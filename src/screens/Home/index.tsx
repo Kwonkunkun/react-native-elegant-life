@@ -1,10 +1,24 @@
 import React from "react";
-import styled from "styled-components/native";
+import HomeView from "./HomeView";
+
+import useHome from "./useHome";
 
 const HomeScreen = () => {
-  return <Container />;
-};
+  const {
+    foodListData,
+    handlePressItem,
+    focusCategoryName,
+    handlePressCategoryFilterButton,
+  } = useHome();
 
-const Container = styled.SafeAreaView({});
+  return (
+    <HomeView
+      foodListData={foodListData}
+      handlePressItem={handlePressItem}
+      focusCategoryName={focusCategoryName}
+      handlePressCategoryFilterButton={handlePressCategoryFilterButton}
+    />
+  );
+};
 
 export default HomeScreen;

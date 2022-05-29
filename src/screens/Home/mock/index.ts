@@ -1,0 +1,77 @@
+import { Food, FoodCategory } from "types/food";
+
+/* eslint-disable camelcase */
+export default [
+  {
+    food_id: 1,
+    name: "삼겹살",
+    category: "meat" as FoodCategory,
+    count: 2,
+    expiration_date: "2022-05-30",
+    created_at: "2022-05-20",
+  },
+  {
+    food_id: 2,
+    name: "감자",
+    category: "vegetable" as FoodCategory,
+    count: 5,
+    expiration_date: "2022-06-02",
+    created_at: "2022-05-20",
+  },
+  {
+    food_id: 3,
+    name: "계란",
+    category: "meat" as FoodCategory,
+    count: 12,
+    expiration_date: "2022-05-20",
+    created_at: "2022-05-20",
+  },
+  {
+    food_id: 11,
+    name: "삼겹살",
+    category: "meat" as FoodCategory,
+    count: 2,
+    expiration_date: "2022-05-30",
+    created_at: "2022-05-20",
+  },
+  {
+    food_id: 12,
+    name: "감자",
+    category: "vegetable" as FoodCategory,
+    count: 5,
+    expiration_date: "2022-06-02",
+    created_at: "2022-05-20",
+  },
+  {
+    food_id: 13,
+    name: "계란",
+    category: "meat" as FoodCategory,
+    count: 12,
+    expiration_date: "2022-05-20",
+    created_at: "2022-05-20",
+  },
+  {
+    food_id: 21,
+    name: "삼겹살",
+    category: "meat" as FoodCategory,
+    count: 2,
+    expiration_date: "2022-05-30",
+    created_at: "2022-05-20",
+  },
+  {
+    food_id: 22,
+    name: "감자",
+    category: "vegetable" as FoodCategory,
+    count: 5,
+    expiration_date: "2022-06-02",
+    created_at: "2022-05-20",
+  },
+  {
+    food_id: 23,
+    name: "계란",
+    category: "meat" as FoodCategory,
+    count: 12,
+    expiration_date: "2022-05-20",
+    created_at: "2022-05-20",
+  },
+] as Food[];
